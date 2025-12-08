@@ -5,7 +5,7 @@ description = "Local offline AI utilities using MLX Whisper and Ollama"
 readme = "README.md"
 requires-python = ">=3.13"
 authors = [
-    {name = "Yashwant", email = ""}
+    {name = "Yashwant"}
 ]
 classifiers = [
     "Development Status :: 3 - Alpha",

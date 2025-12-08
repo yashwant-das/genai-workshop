@@ -4,10 +4,10 @@ import logging
 from argparse import Namespace
 from pathlib import Path
 
-from ..audio.audio_pipeline import AudioPipeline
-from ..audio.transcriber import Transcriber
-from ..pipelines.meeting_minutes import MeetingMinutesGenerator
-from ..utils.exceptions import AIUtilityError
+from src.audio.audio_pipeline import AudioPipeline
+from src.audio.transcriber import Transcriber
+from src.pipelines.meeting_minutes import MeetingMinutesGenerator
+from src.utils.exceptions import AIUtilityError
 
 logger = logging.getLogger(__name__)
 

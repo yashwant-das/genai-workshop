@@ -4,12 +4,12 @@ import logging
 from argparse import Namespace
 from pathlib import Path
 
-from ..pipelines.diagram_explainer import DiagramExplainer
-from ..pipelines.receipt_parser import ReceiptParser
-from ..pipelines.screen_qa import ScreenQA
-from ..vision.ocr import OCRExtractor
-from ..vision.vision_pipeline import VisionPipeline
-from ..utils.exceptions import AIUtilityError
+from src.pipelines.diagram_explainer import DiagramExplainer
+from src.pipelines.receipt_parser import ReceiptParser
+from src.pipelines.screen_qa import ScreenQA
+from src.vision.ocr import OCRExtractor
+from src.vision.vision_pipeline import VisionPipeline
+from src.utils.exceptions import AIUtilityError
 
 logger = logging.getLogger(__name__)
 

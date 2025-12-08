@@ -74,61 +74,66 @@ make install  # Creates venv and installs dependencies
 
 **Transcribe audio:**
 ```bash
-python -m cli.main audio transcribe audio.wav
+python genai audio transcribe audio.wav
 ```
 
 **Transcribe with timestamps:**
 ```bash
-python -m cli.main audio transcribe audio.wav --with-timestamps
+python genai audio transcribe audio.wav --with-timestamps
 ```
 
 **Summarize audio:**
 ```bash
-python -m cli.main audio summarize audio.wav --style concise
+python genai audio summarize audio.wav --style concise
 ```
 
 **Generate meeting minutes:**
 ```bash
-python -m cli.main audio meeting-minutes meeting.wav --format json
+python genai audio meeting-minutes meeting.wav --format json
 ```
 
 **Extract chapter markers:**
 ```bash
-python -m cli.main audio chapters podcast.wav
+python genai audio chapters podcast.wav
 ```
 
 ### Vision Commands
 
 **Describe an image:**
 ```bash
-python -m cli.main vision describe image.jpg
+python genai vision describe image.jpg
 ```
 
 **Extract text (OCR):**
 ```bash
-python -m cli.main vision ocr document.png
+python genai vision ocr document.png
 ```
 
 **Extract receipt data:**
 ```bash
-python -m cli.main vision extract-receipt receipt.jpg --format json
+python genai vision extract-receipt receipt.jpg --format json
 ```
 
 **Analyze a diagram:**
 ```bash
-python -m cli.main vision analyze-diagram diagram.png --detail technical
+python genai vision analyze-diagram diagram.png --detail technical
 ```
 
 **Answer questions about a screenshot:**
 ```bash
-python -m cli.main vision qa screenshot.png --question "How do I export this file?"
+python genai vision qa screenshot.png --question "How do I export this file?"
 ```
 
 ### Output to File
 
 All commands support `--output` to save results to a file:
 ```bash
-python -m cli.main audio summarize audio.wav --output summary.md
+python genai audio summarize audio.wav --output summary.md
+```
+
+**Note:** After installing the package in development mode (`pip install -e .`), you can also use:
+```bash
+genai audio transcribe audio.wav
 ```
 
 ## Project Structure

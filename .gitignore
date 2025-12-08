@@ -64,6 +64,8 @@ logs/
 # Project specific
 test_outputs/
 outputs/
+
+# Ignore media files in root and common locations, but allow in tests/fixtures and samples/
 *.wav
 *.mp3
 *.m4a
@@ -71,4 +73,22 @@ outputs/
 *.jpeg
 *.png
 *.heic
+
+# Allow test fixtures
+!tests/fixtures/**/*.wav
+!tests/fixtures/**/*.mp3
+!tests/fixtures/**/*.m4a
+!tests/fixtures/**/*.jpg
+!tests/fixtures/**/*.jpeg
+!tests/fixtures/**/*.png
+!tests/fixtures/**/*.heic
+
+# Allow sample files
+!samples/**/*.wav
+!samples/**/*.mp3
+!samples/**/*.m4a
+!samples/**/*.jpg
+!samples/**/*.jpeg
+!samples/**/*.png
+!samples/**/*.heic
 
