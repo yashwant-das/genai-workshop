@@ -40,9 +40,12 @@ git clone <repository-url>
 cd genai-workshop
 ```
 
-2. Activate your virtual environment:
+2. Create and activate the project virtual environment (Python 3.13):
 ```bash
-source ~/.ai/bin/activate  # or your virtual environment path
+python3.13 -m venv .venv
+source .venv/bin/activate  # On macOS/Linux
+# or
+.venv\Scripts\activate  # On Windows
 ```
 
 3. Install dependencies:
@@ -58,6 +61,11 @@ ollama list
 # Install models if needed
 ollama pull llama3.2:latest
 ollama pull moondream:latest
+```
+
+**Alternative: Use Makefile**
+```bash
+make install  # Creates venv and installs dependencies
 ```
 
 ## Quick Start
