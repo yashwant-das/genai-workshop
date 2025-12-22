@@ -13,7 +13,7 @@ You can use these files to test the CLI commands:
 
 ```bash
 # Test vision commands
-python genai vision describe samples/images/playwright_poster.png
+python genai vision describe samples/images/Screenshot.png
 python genai vision ocr samples/images/receipt.jpg
 
 # Test audio commands
