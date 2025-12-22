@@ -15,6 +15,7 @@ This project provides a suite of practical AI utilities that run entirely on you
 - **Screen Q&A**: Answer questions about screenshots and UI elements
 
 All processing runs locally using:
+
 - **MLX Whisper** for audio transcription (Apple Silicon optimized)
 - **Ollama** for LLM reasoning and vision tasks
 
@@ -35,12 +36,14 @@ All processing runs locally using:
 ## Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd genai-workshop
 ```
 
-2. Create and activate the project virtual environment (Python 3.13):
+1. Create and activate the project virtual environment (Python 3.13):
+
 ```bash
 python3.13 -m venv .venv
 source .venv/bin/activate  # On macOS/Linux
@@ -48,12 +51,14 @@ source .venv/bin/activate  # On macOS/Linux
 .venv\Scripts\activate  # On Windows
 ```
 
-3. Install dependencies:
+1. Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
-4. Ensure Ollama is running and models are installed:
+1. Ensure Ollama is running and models are installed:
+
 ```bash
 # Check Ollama is running
 ollama list
@@ -63,7 +68,8 @@ ollama pull llama3.2:latest
 ollama pull moondream:latest
 ```
 
-**Alternative: Use Makefile**
+### Alternative: Use Makefile
+
 ```bash
 make install  # Creates venv and installs dependencies
 ```
@@ -73,26 +79,31 @@ make install  # Creates venv and installs dependencies
 ### Audio Commands
 
 **Transcribe audio:**
+
 ```bash
 python genai audio transcribe audio.wav
 ```
 
 **Transcribe with timestamps:**
+
 ```bash
 python genai audio transcribe audio.wav --with-timestamps
 ```
 
 **Summarize audio:**
+
 ```bash
 python genai audio summarize audio.wav --style concise
 ```
 
 **Generate meeting minutes:**
+
 ```bash
 python genai audio meeting-minutes meeting.wav --format json
 ```
 
 **Extract chapter markers:**
+
 ```bash
 python genai audio chapters podcast.wav
 ```
@@ -100,26 +111,31 @@ python genai audio chapters podcast.wav
 ### Vision Commands
 
 **Describe an image:**
+
 ```bash
 python genai vision describe image.jpg
 ```
 
 **Extract text (OCR):**
+
 ```bash
 python genai vision ocr document.png
 ```
 
 **Extract receipt data:**
+
 ```bash
 python genai vision extract-receipt receipt.jpg --format json
 ```
 
 **Analyze a diagram:**
+
 ```bash
 python genai vision analyze-diagram diagram.png --detail technical
 ```
 
 **Answer questions about a screenshot:**
+
 ```bash
 python genai vision qa screenshot.png --question "How do I export this file?"
 ```
@@ -127,18 +143,20 @@ python genai vision qa screenshot.png --question "How do I export this file?"
 ### Output to File
 
 All commands support `--output` to save results to a file:
+
 ```bash
 python genai audio summarize audio.wav --output summary.md
 ```
 
 **Note:** After installing the package in development mode (`pip install -e .`), you can also use:
+
 ```bash
 genai audio transcribe audio.wav
 ```
 
 ## Project Structure
 
-```
+```text
 genai-workshop/
 ├── src/
 │   ├── audio/          # Audio transcription and summarization
@@ -198,6 +216,7 @@ This project is optimized for 8GB M1 Macs:
 ## Testing
 
 Run tests with pytest:
+
 ```bash
 pytest tests/
 ```
@@ -209,4 +228,3 @@ pytest tests/
 ## Contributing
 
 [Add contributing guidelines here]
-

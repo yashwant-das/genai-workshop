@@ -13,7 +13,7 @@ You can use these files to test the CLI commands:
 
 ```bash
 # Test vision commands
-python genai vision describe samples/images/Screenshot.png
+python genai vision describe samples/images/playwright_poster.png
 python genai vision ocr samples/images/receipt.jpg
 
 # Test audio commands
@@ -25,4 +25,3 @@ python genai audio summarize samples/audio/podcast.mp3
 
 Files in this directory are tracked in git (unlike files in the root directory).
 Add your test files here to keep the project root clean.
-
