@@ -1,6 +1,6 @@
-# GenAI Workshop
+# GenAI Workshop: Local AI Experiments
 
-A privacy-focused suite of local AI utilities for audio transcription, vision analysis, and LLM reasoning. This project runs entirely offline on your Apple Silicon (M-series) Mac using MLX Whisper and Ollama.
+An experimental collection of privacy-focused local AI utilities for audio transcription, vision analysis, and LLM reasoning. This project runs entirely offline on your Apple Silicon (M-series) Mac using MLX Whisper and Ollama.
 
 ## 🌟 Key Features
 
