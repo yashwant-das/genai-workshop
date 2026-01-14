@@ -15,11 +15,11 @@ def describe_image(
 ) -> str:
     """
     Generate description of an image.
-    
+
     Args:
         image_path: Path to image file
         detail_level: Level of detail in description
-        
+
     Returns:
         Image description text
     """
@@ -30,13 +30,12 @@ def describe_image(
 def describe_image_for_llm(image_path: Path) -> str:
     """
     Generate detailed description suitable for LLM reasoning.
-    
+
     Args:
         image_path: Path to image file
-        
+
     Returns:
         Detailed image description
     """
     analyzer = VisionAnalyzer()
     return analyzer.describe(image_path, detail="high")
-

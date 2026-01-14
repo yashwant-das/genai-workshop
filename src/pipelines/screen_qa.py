@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 class ScreenQA:
     """Answer questions about screenshots and UI elements."""
-    
+
     def __init__(
         self,
         vision_model: Optional[str] = None,
@@ -22,7 +22,7 @@ class ScreenQA:
     ) -> None:
         """
         Initialize screen Q&A assistant.
-        
+
         Args:
             vision_model: Vision model name
             llm_model: LLM model name
@@ -33,7 +33,7 @@ class ScreenQA:
         )
         self.llm_client = OllamaClient(model=llm_model)
         logger.info("Initialized screen Q&A assistant")
-    
+
     def answer(
         self,
         image_path: Path,
@@ -41,42 +41,42 @@ class ScreenQA:
     ) -> str:
         """
         Answer a question about a screenshot.
-        
+
         Args:
             image_path: Path to screenshot image
             question: Question to answer
-            
+
         Returns:
             Answer text
         """
         logger.info(f"Answering question about screenshot: {image_path}")
-        
+
         # Use vision pipeline for Q&A
         result = self.vision_pipeline.process(
             image_path,
             reasoning_type="qa",
             question=question,
         )
-        
+
         answer = result.get("answer", "")
-        
+
         if not answer:
             raise ModelError("Failed to generate answer")
-        
+
         return answer
-    
+
     def describe_screen(self, image_path: Path) -> str:
         """
         Describe what's shown in a screenshot.
-        
+
         Args:
             image_path: Path to screenshot image
-            
+
         Returns:
             Description text
         """
         return self.vision_pipeline.describe_only(image_path)
-    
+
     def interactive_qa(
         self,
         image_path: Path,
@@ -84,19 +84,19 @@ class ScreenQA:
     ) -> dict[str, str]:
         """
         Answer multiple questions about a screenshot.
-        
+
         Args:
             image_path: Path to screenshot image
             questions: List of questions to answer
-            
+
         Returns:
             Dictionary mapping questions to answers
         """
         logger.info(f"Answering {len(questions)} questions about screenshot")
-        
+
         # Get initial description once
         description = self.vision_pipeline.describe_only(image_path)
-        
+
         # Answer each question
         answers: dict[str, str] = {}
         for question in questions:
@@ -111,6 +111,5 @@ class ScreenQA:
             except Exception as e:
                 logger.warning(f"Failed to answer question '{question}': {e}")
                 answers[question] = f"Error: {e}"
-        
-        return answers
 
+        return answers

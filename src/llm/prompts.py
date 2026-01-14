@@ -7,17 +7,17 @@ from typing import Literal
 @dataclass
 class PromptTemplate:
     """Base prompt template structure."""
-    
+
     system: str
     user: str
-    
+
     def format(self, **kwargs: str) -> tuple[str, str]:
         """
         Format the prompt template with provided variables.
-        
+
         Args:
             **kwargs: Variables to substitute in the template
-            
+
         Returns:
             Tuple of (system_prompt, user_prompt)
         """
@@ -110,13 +110,13 @@ def get_prompt(
 ) -> PromptTemplate:
     """
     Get a prompt template by type.
-    
+
     Args:
         prompt_type: Type of prompt to retrieve
-        
+
     Returns:
         PromptTemplate instance
-        
+
     Raises:
         ValueError: If prompt_type is invalid
     """
@@ -131,12 +131,8 @@ def get_prompt(
         "screen_qa": SCREEN_QA_PROMPT,
         "meeting_minutes": MEETING_MINUTES_PROMPT,
     }
-    
-    if prompt_type not in prompts:
-        raise ValueError(
-            f"Unknown prompt type: {prompt_type}. "
-            f"Available types: {', '.join(prompts.keys())}"
-        )
-    
-    return prompts[prompt_type]
 
+    if prompt_type not in prompts:
+        raise ValueError(f"Unknown prompt type: {prompt_type}. Available types: {', '.join(prompts.keys())}")
+
+    return prompts[prompt_type]

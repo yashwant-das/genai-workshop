@@ -29,12 +29,8 @@ OLLAMA_TIMEOUT_SECONDS: int = int(os.getenv("OLLAMA_TIMEOUT", "30"))
 OLLAMA_BASE_URL: str = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 
 # Output Format Defaults
-DEFAULT_SUMMARY_FORMAT: Literal["markdown", "json"] = os.getenv(
-    "DEFAULT_SUMMARY_FORMAT", "markdown"
-)
-DEFAULT_STRUCTURED_FORMAT: Literal["json", "markdown"] = os.getenv(
-    "DEFAULT_STRUCTURED_FORMAT", "json"
-)
+DEFAULT_SUMMARY_FORMAT: Literal["markdown", "json"] = os.getenv("DEFAULT_SUMMARY_FORMAT", "markdown")
+DEFAULT_STRUCTURED_FORMAT: Literal["json", "markdown"] = os.getenv("DEFAULT_STRUCTURED_FORMAT", "json")
 
 # Logging Configuration
 LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
@@ -50,4 +46,3 @@ OUTPUT_DIR: Path = PROJECT_ROOT / "outputs"
 
 # Create output directory if it doesn't exist
 OUTPUT_DIR.mkdir(exist_ok=True)
-

@@ -22,7 +22,7 @@ class OllamaClient:
     ) -> None:
         """
         Initialize Ollama client.
-        
+
         Args:
             model: Model name (defaults to DEFAULT_LLM_MODEL)
             base_url: Ollama base URL (defaults to OLLAMA_BASE_URL)
@@ -36,7 +36,7 @@ class OllamaClient:
     def check_connection(self) -> bool:
         """
         Check if Ollama service is running and accessible.
-        
+
         Returns:
             True if connection is successful, False otherwise
         """
@@ -50,10 +50,10 @@ class OllamaClient:
     def check_model_available(self, model: Optional[str] = None) -> bool:
         """
         Check if specified model is available locally.
-        
+
         Args:
             model: Model name to check (defaults to self.model)
-            
+
         Returns:
             True if model is available, False otherwise
         """
@@ -76,47 +76,44 @@ class OllamaClient:
     ) -> str | Iterator[str]:
         """
         Generate text using Ollama.
-        
+
         Args:
             prompt: User prompt
             system: System prompt (optional)
             model: Model name (defaults to self.model)
             stream: Whether to stream responses
             **kwargs: Additional parameters for Ollama API
-            
+
         Returns:
             Generated text (str) or iterator of text chunks (if stream=True)
-            
+
         Raises:
             ModelError: If generation fails or model is unavailable
         """
         model_name = model or self.model
-        
+
         # Check model availability
         if not self.check_model_available(model_name):
-            raise ModelError(
-                f"Model '{model_name}' is not available. "
-                f"Install it with: ollama pull {model_name}"
-            )
-        
+            raise ModelError(f"Model '{model_name}' is not available. Install it with: ollama pull {model_name}")
+
         try:
             messages = []
             if system:
                 messages.append({"role": "system", "content": system})
             messages.append({"role": "user", "content": prompt})
-            
+
             response = self._client.chat(
                 model=model_name,
                 messages=messages,
                 stream=stream,
                 **kwargs,
             )
-            
+
             if stream:
                 return self._stream_response(response)
             else:
                 return response.message.content
-                
+
         except Exception as e:
             logger.error(f"Failed to generate text: {e}")
             raise ModelError(f"Text generation failed: {e}") from e
@@ -124,10 +121,10 @@ class OllamaClient:
     def _stream_response(self, response: Any) -> Iterator[str]:
         """
         Extract text chunks from streaming response.
-        
+
         Args:
             response: Streaming response from Ollama
-            
+
         Yields:
             Text chunks
         """
@@ -150,13 +147,13 @@ class OllamaClient:
     ) -> AsyncGenerator[str, None]:
         """
         Generate text asynchronously (for future async support).
-        
+
         Args:
             prompt: User prompt
             system: System prompt (optional)
             model: Model name (defaults to self.model)
             **kwargs: Additional parameters
-            
+
         Yields:
             Text chunks asynchronously
         """
@@ -165,4 +162,3 @@ class OllamaClient:
         response = self.generate(prompt, system, model, stream=True, **kwargs)
         for chunk in response:
             yield chunk
-
