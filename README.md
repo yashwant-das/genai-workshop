@@ -2,15 +2,15 @@
 
 An experimental collection of privacy-focused local AI utilities for audio transcription, vision analysis, and LLM reasoning. This project runs entirely offline on your Apple Silicon (M-series) Mac using MLX Whisper and Ollama.
 
-## 🌟 Key Features
+## Key Features
 
-### 🎧 Audio Intelligence
+### Audio Intelligence
 - **High-Fidelity Transcription**: Powered by MLX Whisper (Apple Silicon optimized).
 - **Intelligent Summarization**: Extract key points and action items from recordings.
 - **Meeting Minutes**: Generate structured summaries with attendees, decisions, and deadlines.
 - **Chapter Extraction**: Automatically segment long audio files into logical chapters.
 
-### 👁️ Vision Analysis
+### Vision Analysis
 - **Image Description**: Natural language explanations of visual content.
 - **OCR & Data Extraction**: Extract raw text or structured data (e.g., from receipts).
 - **Diagram Explanation**: Step-by-step breakdown of logic flows and charts.
@@ -18,7 +18,7 @@ An experimental collection of privacy-focused local AI utilities for audio trans
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - **Hardware**: macOS on Apple Silicon (M1/M2/M3/M4 or later)
@@ -51,7 +51,7 @@ An experimental collection of privacy-focused local AI utilities for audio trans
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 Manage behavior via environment variables. Defaults are optimized for baseline Apple Silicon Macs (e.g., 8GB RAM).
 
@@ -69,7 +69,7 @@ Manage behavior via environment variables. Defaults are optimized for baseline A
 
 ---
 
-## 🛠️ Usage
+## Usage
 
 ### Command Line Interface (CLI)
 
@@ -121,7 +121,7 @@ print(f"Analysis: {description}")
 
 ---
 
-## 🏗️ Technical Architecture
+## Technical Architecture
 
 ### Project Structure
 ```text
@@ -144,7 +144,7 @@ Designed to run efficiently on base-model Apple Silicon (M1/M2/M3/M4+ with 8GB R
 
 ---
 
-## 🧪 Development
+## Development
 
 ### Linting & Formatting
 This project uses **Ruff** for code style and quality.
@@ -163,5 +163,5 @@ python -m ruff format .
 
 ---
 
-## 📄 License
+## License
 This project is licensed under the [MIT License](LICENSE).
